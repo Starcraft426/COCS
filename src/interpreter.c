@@ -532,13 +532,8 @@ void interpreter(function_t* function, function_list_t* functions, val_t* result
                 int lenght = val->value.chaine->chars_len;
                 char* str = val->value.chaine->chars;
 
-                if (str[0] != '"' || str[lenght - 1] != '"') {
-                    printf("La chaîne donnée ne correspond pas à une chaîne de caractères, des guillemets sont requis.\nVeuillez recommencer avec des guillemets.\n");
-                    fflush(stdout);
-                } else {
-                    copy_val(env->phraseValeurs[phraseActuelle->uniqueId], val, true, true);
-                    phraseActuelle = phraseActuelle->suivant;
-                }
+                copy_val(env->phraseValeurs[phraseActuelle->uniqueId], val, true, true);
+                phraseActuelle = phraseActuelle->suivant;
                 free_val_t(val, true, true);
                 break;
             }
